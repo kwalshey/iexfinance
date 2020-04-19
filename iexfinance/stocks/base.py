@@ -638,6 +638,24 @@ class Stock(_IEXBase):
         """
         return self._get_endpoint("stats", params=kwargs)
 
+    def get_advanced_stats(self, **kwargs):
+        """
+        Reference: https://iexcloud.io/docs/api/#key-stats
+
+        Parameters
+        ----------
+        stat: str, optional
+            Case sensitive string matching the name of a single key
+            to return one value.Ex: If you only want the next earnings
+            date, you would use `nextEarningsDate`.
+
+        Returns
+        -------
+        dict or pandas.DataFrame
+            Stocks Advanced Stats endpoint data
+        """
+        return self._get_endpoint("advancedstats", params=kwargs)
+
     def get_largest_trades(self):
         """
         Reference: https://iexcloud.io/docs/api/#largest-trades
